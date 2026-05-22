@@ -1,0 +1,18 @@
+---
+import { nav, site } from '../data/site';
+---
+<header class="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-pa-primary/85 backdrop-blur-xl">
+  <div class="section-shell flex h-20 items-center justify-between">
+    <a href="#home" class="flex items-center gap-3 text-white">
+      <div class="grid h-12 w-12 place-items-center rounded-full border border-pa-secondary/70 bg-white/10 text-xs font-black text-pa-secondary">LOGO</div>
+      <div>
+        <p class="font-display text-xl font-bold leading-none">Point After</p>
+        <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/60">Pub & Grille</p>
+      </div>
+    </a>
+    <nav class="hidden items-center gap-8 lg:flex">
+      {nav.map((item) => <a class="text-sm font-bold uppercase tracking-[0.18em] text-white/75 hover:text-pa-secondary" href={item.href}>{item.label}</a>)}
+    </nav>
+    <a href={`tel:${site.phone}`} class="btn btn-primary hidden sm:inline-flex">Call Now</a>
+  </div>
+</header>

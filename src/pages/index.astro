@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { menuHighlights, site, specials } from '../data/site';
+---
+<BaseLayout title="Point After Pub & Grille | Franklin, WI" description="Modern redesign starter for Point After Pub & Grille in Franklin, Wisconsin.">
+  <Header />
+  <Hero />
+
+  <main>
+    <section id="menu" class="py-24">
+      <div class="section-shell">
+        <SectionHeading eyebrow="Food & Drink" title="Pub classics with a polished digital menu experience." copy="Use this section for high-margin favorites, updated PDFs, online menu embeds, or manually-managed menu cards." />
+        <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {menuHighlights.map((item) => (
+            <article class="rounded-[2rem] border border-pa-taupe/20 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-glow">
+              <p class="text-xs font-black uppercase tracking-[0.25em] text-pa-accent">{item.price}</p>
+              <h3 class="mt-4 font-display text-3xl font-black text-pa-primary">{item.title}</h3>
+              <p class="mt-4 leading-7 text-pa-ink/70">{item.copy}</p>
+            </article>
+          ))}
+        </div>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a class="btn bg-pa-primary text-white hover:bg-pa-accent" href="/menu.pdf">Download Menu</a>
+          <a class="btn border border-pa-primary text-pa-primary hover:bg-pa-primary hover:text-white" href="#contact">Ask About Specials</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="specials" class="bg-pa-ink py-24 text-white">
+      <div class="section-shell grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+        <div class="placeholder-img border-white/20 bg-white/5 text-white/50">Specials / wings / drinks image placeholder</div>
+        <div>
+          <SectionHeading eyebrow="Specials" title="Make repeat visits easy." copy="The older site has events and food content; this modern layout makes specials feel current without needing a full custom CMS right away." />
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            {specials.map((item) => <div class="rounded-3xl border border-white/10 bg-white/5 p-5 font-bold">{item}</div>)}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="events" class="py-24">
+      <div class="section-shell grid gap-10 lg:grid-cols-3">
+        <div class="lg:col-span-1"><SectionHeading eyebrow="Events" title="Game days, calendars, and community nights." /></div>
+        <div class="grid gap-6 lg:col-span-2 md:grid-cols-2">
+          <div class="rounded-[2rem] bg-pa-primary p-8 text-white">
+            <p class="eyebrow">Sports</p>
+            <h3 class="mt-4 font-display text-4xl font-black">Watch parties</h3>
+            <p class="mt-4 text-white/75">Create cards for Packers, Bucks, Brewers, UFC, trivia, karaoke, or live music nights.</p>
+          </div>
+          <div class="rounded-[2rem] bg-pa-secondary p-8 text-pa-ink">
+            <p class="text-xs font-black uppercase tracking-[0.35em] text-pa-primary">Calendar</p>
+            <h3 class="mt-4 font-display text-4xl font-black">Event feed</h3>
+            <p class="mt-4 text-pa-ink/75">Swap this with Google Calendar, manual Markdown, or a lightweight CMS later.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="parties" class="overflow-hidden bg-pa-taupe/20 py-24">
+      <div class="section-shell grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div>
+          <SectionHeading eyebrow="Private Events" title="Give groups a reason to book." copy="Inspired by modern restaurant sites: strong copy, warm images, and clear CTAs for birthdays, teams, fantasy drafts, company outings, and family gatherings." />
+          <a class="btn mt-8 bg-pa-accent text-white hover:bg-pa-primary" href={`tel:${site.phone}`}>Plan an Event</a>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div class="placeholder-img min-h-[320px]">Private party image placeholder</div>
+          <div class="placeholder-img min-h-[320px] translate-y-8">Bar / tables image placeholder</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-pa-primary py-24 text-white">
+      <div class="section-shell grid gap-10 lg:grid-cols-[1fr_.85fr] lg:items-start">
+        <div>
+          <p class="eyebrow">Visit Us</p>
+          <h2 class="mt-4 font-display text-5xl font-black">Get to The Point.</h2>
+          <p class="mt-5 max-w-xl text-lg leading-8 text-white/75">Add real hours, social links, online ordering, and a Google Maps embed once you confirm final business info.</p>
+          <div class="mt-8 space-y-3 text-white/80">
+            <p><strong class="text-pa-secondary">Address:</strong> {site.address}</p>
+            <p><strong class="text-pa-secondary">Phone:</strong> <a href={`tel:${site.phone}`}>{site.phone}</a></p>
+            <p><strong class="text-pa-secondary">Email:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></p>
+          </div>
+        </div>
+        <div class="rounded-[2rem] border border-white/10 bg-white/10 p-6">
+          <div class="placeholder-img min-h-[340px] border-white/20 bg-white/5 text-white/50">Google map embed placeholder</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-pa-ink py-10 text-white/60">
+    <div class="section-shell flex flex-col gap-4 text-sm md:flex-row md:items-center md:justify-between">
+      <p>© {new Date().getFullYear()} Point After Pub & Grille. All rights reserved.</p>
+      <p>Temporary logo, favicon, and image placeholders included.</p>
+    </div>
+  </footer>
+</BaseLayout>

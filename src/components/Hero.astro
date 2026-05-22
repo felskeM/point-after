@@ -1,0 +1,29 @@
+---
+import { site } from '../data/site';
+---
+<section id="home" class="relative isolate min-h-screen overflow-hidden bg-pa-primary pt-28 text-white">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(245,169,28,0.26),transparent_32%),linear-gradient(135deg,rgba(121,23,21,0.98),rgba(33,24,21,0.95))]"></div>
+  <div class="section-shell grid min-h-[78vh] items-center gap-12 py-12 lg:grid-cols-[1.05fr_.95fr]">
+    <div>
+      <p class="eyebrow">Franklin, Wisconsin</p>
+      <h1 class="mt-5 max-w-4xl font-display text-6xl font-black leading-[0.92] sm:text-7xl lg:text-8xl">Way More Than Just a Sports Bar!</h1>
+      <p class="mt-7 max-w-2xl text-lg leading-8 text-white/78">We are  a family-friendly full service restaurant offering a nice variety of menu items as well as a minor league menu for the shorter crowd.  With 23 flat screens strategically placed throughout the restaurant, there is never a bad seat in the house for viewing sports and ignoring your friends!</p>
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a href="#menu" class="btn btn-primary">View Menu</a>
+        <a href="#events" class="btn btn-outline">Upcoming Events</a>
+      </div>
+      <div class="mt-10 grid gap-4 text-sm text-white/70 sm:grid-cols-3">
+        <div><strong class="block text-pa-secondary">Address</strong>{site.address}</div>
+        <div><strong class="block text-pa-secondary">Phone</strong>{site.phone}</div>
+        <div><strong class="block text-pa-secondary">The Point</strong>Getting to the point since 2015</div>
+      </div>
+    </div>
+    <div class="relative">
+      <div class="placeholder-img min-h-[560px] border-white/25 bg-white/10 text-white/60">Hero food / bar / exterior image placeholder</div>
+      <div class="absolute -bottom-8 -left-8 hidden rounded-[2rem] bg-pa-secondary p-6 text-pa-ink shadow-glow md:block">
+        <p class="text-xs font-black uppercase tracking-[0.25em]">Now Featuring</p>
+        <p class="font-display text-3xl font-black">Daily Specials</p>
+      </div>
+    </div>
+  </div>
+</section>

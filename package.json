@@ -1,0 +1,23 @@
+{
+  "name": "point-after-pub-grille",
+  "type": "module",
+  "version": "1.0.0",
+    "engines": {
+    "node": ">=24.15.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "latest",
+    "@astrojs/tailwind": "latest",
+    "astro": "latest",
+    "tailwindcss": "latest"
+  },
+  "devDependencies": {
+    "astro": "^6.3.7"
+  }
+}

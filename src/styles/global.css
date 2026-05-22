@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply bg-pa-cream text-pa-ink antialiased; }
+::selection { @apply bg-pa-secondary text-pa-ink; }
+
+.section-shell { @apply mx-auto max-w-7xl px-5 sm:px-8 lg:px-10; }
+.eyebrow { @apply text-xs font-black uppercase tracking-[0.35em] text-pa-secondary; }
+.btn { @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-black uppercase tracking-[0.18em] transition duration-300; }
+.btn-primary { @apply bg-pa-secondary text-pa-ink hover:-translate-y-0.5 hover:bg-white; }
+.btn-outline { @apply border border-white/40 text-white hover:-translate-y-0.5 hover:border-pa-secondary hover:bg-pa-secondary hover:text-pa-ink; }
+.placeholder-img { @apply flex min-h-[260px] items-center justify-center rounded-[2rem] border border-dashed border-pa-taupe/60 bg-white/55 p-6 text-center text-sm font-bold uppercase tracking-[0.25em] text-pa-taupe; }
