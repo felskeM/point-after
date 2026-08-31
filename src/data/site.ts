@@ -1,6 +1,6 @@
 export const site = {
   name: 'Point After Pub & Grille',
-  tagline: 'Great food. Cold drinks. Game-day energy.',
+  tagline: 'Way More Than Just a Sports Bar!',
   address: '7101 S. 76th St. Franklin, WI 53132',
   phone: '414-425-0822',
   email: 'info@pointafterpubandgrille.com',
@@ -16,15 +16,15 @@ export const nav = [
 ];
 
 export const menuHighlights = [
-  { title: 'Pub Burgers', copy: 'Flame-grilled classics built for lunch, dinner, and game day.', price: 'From $12' },
-  { title: 'Wings & Starters', copy: 'Shareable plates, sauces, baskets, and bar favorites.', price: 'Crowd favorite' },
-  { title: 'Fish Fry', copy: 'Wisconsin-style comfort with a proper pub atmosphere.', price: 'Friday feature' },
-  { title: 'Minor League Menu', copy: 'Family-friendly options for the shorter crowd.', price: 'Kids menu' },
+  { title: 'Build Your Own', copy: 'Choose Angus beef, portabella mushroom, black bean, veggie burger, or an 8oz chicken breast.', price: '$15.95' },
+  { title: 'Bone-In Wings', copy: 'Buffalo, BBQ, honey garlic, dry rub, or TKO with celery sticks and your choice of dip.', price: 'From $13.50' },
+  { title: 'Point After Fish Fry', copy: 'Three pieces of haddock with fries, coleslaw, rye bread, and your choice of potato pancakes or seasoned fries.', price: '$18.95' },
+  { title: 'Minor League Menu', copy: 'Mac & cheese, chicken tenders, grilled cheese, hamburger sliders, and cheeseburger sliders for the shorter crowd.', price: '$7.45' },
 ];
 
 export const specials = [
-  'Daily food & drink specials',
-  'Game-day watch parties',
-  'Happy hour energy',
-  'Seasonal pub features',
+  'Taco Tuesday at Point After',
+  'Chicken or beef taco platter - $12.95',
+  'Tuesday lunch taco platter - $7.95',
+  'New wines now pouring - $11 glass / $32 bottle',
 ];

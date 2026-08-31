@@ -5,7 +5,7 @@ import Hero from '../components/Hero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import { menuHighlights, site, specials } from '../data/site';
 ---
-<BaseLayout title="Point After Pub & Grille | Franklin, WI" description="Modern redesign starter for Point After Pub & Grille in Franklin, Wisconsin.">
+<BaseLayout title="Point After Pub & Grille | Franklin, WI" description="Way More Than Just a Sports Bar! Family-friendly food, drinks, and 23 screens in Franklin, Wisconsin.">
   <Header />
   <Hero />
 
@@ -97,8 +97,8 @@ import { menuHighlights, site, specials } from '../data/site';
     <section id="menu-new" class="py-24 lg:py-32">
       <div class="section-shell">
         <div class="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
-          <div><p class="eyebrow text-pa-primary">Food & Drink</p><h2 class="display-title mt-4">Come hungry.<br/>Leave happy.</h2></div>
-          <div class="max-w-2xl lg:justify-self-end"><p class="text-lg leading-8 text-pa-ink/70">Familiar pub favorites, hot off the grill and built for sharing. Whether it’s a quick lunch, Friday fish fry, or the whole family after the game, we’ve got your table covered.</p><a href="#contact-new" class="card-link mt-6">Get directions <span>→</span></a></div>
+          <div><p class="eyebrow text-pa-primary">Our Menu</p><h2 class="display-title mt-4">Something for<br/>every appetite.</h2></div>
+          <div class="max-w-2xl lg:justify-self-end"><p class="text-lg leading-8 text-pa-ink/70">From appetizers, wings, salads, and build-your-own burgers to sandwiches, wraps, Friday fish fry, and a Minor League Menu for the shorter crowd.</p><a href="/menus/point-after-main-menu-may-2026.pdf" class="card-link mt-6">Download the complete menu <span>→</span></a></div>
         </div>
         <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {menuHighlights.map((item, i) => <article class={`group relative min-h-[390px] overflow-hidden rounded-[2rem] ${i === 0 ? 'lg:col-span-2' : ''}`}>
@@ -107,18 +107,18 @@ import { menuHighlights, site, specials } from '../data/site';
             <div class="absolute inset-x-0 bottom-0 p-7 text-white"><p class="text-[10px] font-black uppercase tracking-[.2em] text-pa-secondary">{item.price}</p><h3 class="mt-2 font-display text-4xl font-black uppercase">{item.title}</h3><p class="mt-2 max-w-md text-sm leading-6 text-white/70">{item.copy}</p></div>
           </article>)}
         </div>
-        <a class="btn mt-8 bg-pa-primary text-white hover:bg-pa-accent" href="#contact-new">View Full Menu <span>↗</span></a>
+        <div class="mt-8 flex flex-wrap gap-3"><a class="btn bg-pa-primary text-white hover:bg-pa-accent" href="/menus/point-after-main-menu-may-2026.pdf">Full Food Menu <span>↗</span></a><a class="btn border border-pa-primary text-pa-primary hover:bg-pa-primary hover:text-white" href="/menus/taco-tuesday-menu.pdf">Taco Tuesday Menu <span>↗</span></a></div>
       </div>
     </section>
 
     <section id="specials-new" class="bg-pa-primary py-24 text-white lg:py-32">
       <div class="section-shell grid gap-12 lg:grid-cols-2 lg:items-center">
         <div class="photo-card min-h-[540px]"><img src="/images/IMG_8855.jpg" alt="A Point After cocktail and shot" loading="lazy" /></div>
-        <div class="lg:pl-12"><p class="eyebrow">Meet at The Point</p><h2 class="display-title mt-4">A local spot<br/>with real spirit.</h2><p class="mt-7 max-w-xl text-lg leading-8 text-white/70">Pull up a chair at the bar, discover a new favorite pour, and catch up with friends. There’s always something worth coming back for.</p><div class="mt-9 grid gap-3 sm:grid-cols-2">{specials.map((item) => <div class="border-t border-white/20 py-4 text-sm font-black uppercase tracking-[.12em]">{item}</div>)}</div><a class="btn btn-primary mt-8" href={`tel:${site.phone}`}>Call Us <span>→</span></a></div>
+        <div class="lg:pl-12"><p class="eyebrow">Food & Drink Features</p><h2 class="display-title mt-4">Bring your appetite<br/>- it’s a fiesta!</h2><p class="mt-7 max-w-xl text-lg leading-8 text-white/70">Taco Tuesday at Point After features chicken, beef, shredded pork, fish, and shrimp taco platters, plus a lunch platter served from 11 AM-3 PM.</p><div class="mt-9 grid gap-3 sm:grid-cols-2">{specials.map((item) => <div class="border-t border-white/20 py-4 text-sm font-black uppercase tracking-[.12em]">{item}</div>)}</div><div class="mt-8 flex flex-wrap gap-3"><a class="btn btn-primary" href="/menus/taco-tuesday-menu.pdf">Taco Tuesday <span>↗</span></a><a class="btn btn-outline" href="/menus/wines-and-summer-features.pdf">Wine Features <span>↗</span></a></div></div>
       </div>
     </section>
 
-    <section id="events-new" class="py-24 lg:py-32"><div class="section-shell"><div class="grid gap-8 lg:grid-cols-[.75fr_1.25fr] lg:items-center"><div><p class="eyebrow text-pa-primary">Games & Gatherings</p><h2 class="display-title mt-4">There’s always<br/>a reason to cheer.</h2><p class="mt-6 max-w-lg leading-7 text-pa-ink/70">From Wisconsin sports to summer bags leagues, Point After is where Franklin comes together.</p></div><div class="grid grid-cols-2 gap-4"><div class="photo-card mt-12 h-[420px]"><img src="/images/_MG_0077.jpg" alt="Cornhole players at Point After" loading="lazy" /></div><div class="photo-card h-[420px]"><img src="/images/_MG_0107.jpg" alt="Point After community gathering" loading="lazy" /></div></div></div></div></section>
+    <section id="events-new" class="py-24 lg:py-32"><div class="section-shell"><div class="grid gap-8 lg:grid-cols-[.75fr_1.25fr] lg:items-center"><div><p class="eyebrow text-pa-primary">More Than a Sports Bar</p><h2 class="display-title mt-4">Never a bad seat<br/>in the house.</h2><p class="mt-6 max-w-lg leading-7 text-pa-ink/70">With 23 flat screens strategically placed throughout the restaurant, Point After is the place for viewing sports - and ignoring your friends!</p></div><div class="grid grid-cols-2 gap-4"><div class="photo-card mt-12 h-[420px]"><img src="/images/_MG_0077.jpg" alt="Cornhole players at Point After" loading="lazy" /></div><div class="photo-card h-[420px]"><img src="/images/_MG_0107.jpg" alt="Point After community gathering" loading="lazy" /></div></div></div></div></section>
 
     <section id="parties-new" class="relative isolate min-h-[650px] overflow-hidden text-white"><img src="/images/IMG_8820.jpg" alt="Point After dining room" class="absolute inset-0 -z-20 h-full w-full object-cover" loading="lazy" /><div class="absolute inset-0 -z-10 bg-pa-ink/70"></div><div class="section-shell flex min-h-[650px] items-center justify-center py-24 text-center"><div class="max-w-4xl"><p class="eyebrow">Bring the whole crew</p><h2 class="display-title mt-5 lg:text-8xl">Good times are<br/>better together.</h2><p class="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/75">Birthdays, team dinners, fantasy drafts, and no-reason-needed get-togethers. Tell us what you’re planning.</p><a href={`tel:${site.phone}`} class="btn btn-primary mt-9">Plan a Gathering <span>→</span></a></div></div></section>
 
