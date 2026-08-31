@@ -1,18 +1,17 @@
 ---
 import { nav, site } from '../data/site';
 ---
-<header class="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-pa-primary/85 backdrop-blur-xl">
-  <div class="section-shell flex h-20 items-center justify-between">
-    <a href="#home" class="flex items-center gap-3 text-white">
-      <div class="grid h-12 w-12 place-items-center rounded-full border border-pa-secondary/70 bg-white/10 text-xs font-black text-pa-secondary">LOGO</div>
-      <div>
-        <p class="font-display text-xl font-bold leading-none">Point After</p>
-        <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/60">Pub & Grille</p>
-      </div>
+<header class="site-header">
+  <div class="section-shell flex h-[86px] items-center justify-between gap-6">
+    <a href="#home" class="shrink-0" aria-label="Point After home">
+      <img src="/brand/tag-logo.png" alt="Point After Pub & Grille" class="h-14 w-auto" />
     </a>
-    <nav class="hidden items-center gap-8 lg:flex">
-      {nav.map((item) => <a class="text-sm font-bold uppercase tracking-[0.18em] text-white/75 hover:text-pa-secondary" href={item.href}>{item.label}</a>)}
+    <nav class="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
+      {nav.map((item) => <a class="nav-link" href={item.href}>{item.label}</a>)}
     </nav>
-    <a href={`tel:${site.phone}`} class="btn btn-primary hidden sm:inline-flex">Call Now</a>
+    <div class="flex items-center gap-3">
+      <a href="#menu-new" class="btn btn-primary hidden sm:inline-flex">View Menu</a>
+      <a href={`tel:${site.phone}`} class="icon-link" aria-label={`Call ${site.phone}`}>Call</a>
+    </div>
   </div>
 </header>

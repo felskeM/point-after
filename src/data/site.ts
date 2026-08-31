@@ -8,11 +8,11 @@ export const site = {
 };
 
 export const nav = [
-  { label: 'Menu', href: '#menu' },
-  { label: 'Specials', href: '#specials' },
-  { label: 'Events', href: '#events' },
-  { label: 'Parties', href: '#parties' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Menu', href: '#menu-new' },
+  { label: 'Specials', href: '#specials-new' },
+  { label: 'Events', href: '#events-new' },
+  { label: 'Parties', href: '#parties-new' },
+  { label: 'Contact', href: '#contact-new' },
 ];
 
 export const menuHighlights = [

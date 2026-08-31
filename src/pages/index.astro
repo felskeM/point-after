@@ -9,7 +9,7 @@ import { menuHighlights, site, specials } from '../data/site';
   <Header />
   <Hero />
 
-  <main>
+  <main class="hidden">
     <section id="menu" class="py-24">
       <div class="section-shell">
         <SectionHeading eyebrow="Food & Drink" title="Pub classics with a polished digital menu experience." copy="Use this section for high-margin favorites, updated PDFs, online menu embeds, or manually-managed menu cards." />
@@ -91,10 +91,44 @@ import { menuHighlights, site, specials } from '../data/site';
     </section>
   </main>
 
+  <main>
+    <div class="marquee" aria-hidden="true"><span>Cold Drinks • Flame-Grilled Favorites • Every Game • Good Company • Cold Drinks • Flame-Grilled Favorites • Every Game • Good Company • </span></div>
+
+    <section id="menu-new" class="py-24 lg:py-32">
+      <div class="section-shell">
+        <div class="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+          <div><p class="eyebrow text-pa-primary">Food & Drink</p><h2 class="display-title mt-4">Come hungry.<br/>Leave happy.</h2></div>
+          <div class="max-w-2xl lg:justify-self-end"><p class="text-lg leading-8 text-pa-ink/70">Familiar pub favorites, hot off the grill and built for sharing. Whether it’s a quick lunch, Friday fish fry, or the whole family after the game, we’ve got your table covered.</p><a href="#contact-new" class="card-link mt-6">Get directions <span>→</span></a></div>
+        </div>
+        <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {menuHighlights.map((item, i) => <article class={`group relative min-h-[390px] overflow-hidden rounded-[2rem] ${i === 0 ? 'lg:col-span-2' : ''}`}>
+            <img src={["/images/IMG_8819.jpg","/images/IMG_8815.jpg","/images/IMG_8856.jpg","/images/IMG_8863.jpg"][i]} alt={item.title} class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-pa-ink via-pa-ink/20 to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 p-7 text-white"><p class="text-[10px] font-black uppercase tracking-[.2em] text-pa-secondary">{item.price}</p><h3 class="mt-2 font-display text-4xl font-black uppercase">{item.title}</h3><p class="mt-2 max-w-md text-sm leading-6 text-white/70">{item.copy}</p></div>
+          </article>)}
+        </div>
+        <a class="btn mt-8 bg-pa-primary text-white hover:bg-pa-accent" href="#contact-new">View Full Menu <span>↗</span></a>
+      </div>
+    </section>
+
+    <section id="specials-new" class="bg-pa-primary py-24 text-white lg:py-32">
+      <div class="section-shell grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div class="photo-card min-h-[540px]"><img src="/images/IMG_8855.jpg" alt="A Point After cocktail and shot" loading="lazy" /></div>
+        <div class="lg:pl-12"><p class="eyebrow">Meet at The Point</p><h2 class="display-title mt-4">A local spot<br/>with real spirit.</h2><p class="mt-7 max-w-xl text-lg leading-8 text-white/70">Pull up a chair at the bar, discover a new favorite pour, and catch up with friends. There’s always something worth coming back for.</p><div class="mt-9 grid gap-3 sm:grid-cols-2">{specials.map((item) => <div class="border-t border-white/20 py-4 text-sm font-black uppercase tracking-[.12em]">{item}</div>)}</div><a class="btn btn-primary mt-8" href={`tel:${site.phone}`}>Call Us <span>→</span></a></div>
+      </div>
+    </section>
+
+    <section id="events-new" class="py-24 lg:py-32"><div class="section-shell"><div class="grid gap-8 lg:grid-cols-[.75fr_1.25fr] lg:items-center"><div><p class="eyebrow text-pa-primary">Games & Gatherings</p><h2 class="display-title mt-4">There’s always<br/>a reason to cheer.</h2><p class="mt-6 max-w-lg leading-7 text-pa-ink/70">From Wisconsin sports to summer bags leagues, Point After is where Franklin comes together.</p></div><div class="grid grid-cols-2 gap-4"><div class="photo-card mt-12 h-[420px]"><img src="/images/_MG_0077.jpg" alt="Cornhole players at Point After" loading="lazy" /></div><div class="photo-card h-[420px]"><img src="/images/_MG_0107.jpg" alt="Point After community gathering" loading="lazy" /></div></div></div></div></section>
+
+    <section id="parties-new" class="relative isolate min-h-[650px] overflow-hidden text-white"><img src="/images/IMG_8820.jpg" alt="Point After dining room" class="absolute inset-0 -z-20 h-full w-full object-cover" loading="lazy" /><div class="absolute inset-0 -z-10 bg-pa-ink/70"></div><div class="section-shell flex min-h-[650px] items-center justify-center py-24 text-center"><div class="max-w-4xl"><p class="eyebrow">Bring the whole crew</p><h2 class="display-title mt-5 lg:text-8xl">Good times are<br/>better together.</h2><p class="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/75">Birthdays, team dinners, fantasy drafts, and no-reason-needed get-togethers. Tell us what you’re planning.</p><a href={`tel:${site.phone}`} class="btn btn-primary mt-9">Plan a Gathering <span>→</span></a></div></div></section>
+
+    <section id="contact-new" class="bg-pa-cream py-24 lg:py-32"><div class="section-shell grid gap-12 lg:grid-cols-[1.1fr_.9fr] lg:items-start"><div><img src="/brand/main-logo.png" alt="Point After Pub & Grille" class="w-64 max-w-full" /><h2 class="display-title mt-10">Get to<br/><span class="text-pa-primary">The Point.</span></h2></div><div class="rounded-[2rem] bg-pa-ink p-8 text-white sm:p-10"><p class="eyebrow">Visit Us</p><a href={site.mapsUrl} class="mt-5 block font-display text-3xl font-black uppercase leading-tight hover:text-pa-secondary">{site.address}</a><a href={`tel:${site.phone}`} class="mt-7 block text-xl font-bold text-pa-secondary">{site.phone}</a><div class="mt-8 border-t border-white/15 pt-8 text-sm leading-7 text-white/65"><p>Family-friendly dining · Full-service bar</p><p>23 screens · Never a bad seat in the house</p></div><a href={site.mapsUrl} class="btn btn-primary mt-8">Get Directions <span>↗</span></a></div></div></section>
+  </main>
+
   <footer class="bg-pa-ink py-10 text-white/60">
     <div class="section-shell flex flex-col gap-4 text-sm md:flex-row md:items-center md:justify-between">
       <p>© {new Date().getFullYear()} Point After Pub & Grille. All rights reserved.</p>
-      <p>Temporary logo, favicon, and image placeholders included.</p>
+      <img src="/brand/tag-logo.png" alt="Point After" class="h-12 w-auto" />
     </div>
   </footer>
 </BaseLayout>
