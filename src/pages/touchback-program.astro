@@ -1,0 +1,23 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import { site } from '../data/site';
+---
+<ContentLayout title="Touchback Program" description="Partner with Point After Pub & Grille through the Touchback Program to support your community nonprofit." eyebrow="Giving back, together" heading="The Touchback Program.">
+  <div class="mt-12 grid gap-12 lg:grid-cols-2 lg:items-start">
+    <div class="space-y-6 text-lg leading-8">
+      <p>Point After Pub &amp; Grille has a strong interest in supporting the various non-profit organizations in our community, so we have created our “Touchback Program” as a means to create win-win relationships with these groups.</p>
+      <h2 class="text-3xl font-black text-pa-primary">Bring your community to The Point.</h2>
+      <p>If you feel your organization provides a positive benefit to our community, we would be pleased to consider your group for participation in the Point After’s Touchback Program.</p>
+      <p>In exchange for publicizing the event, your organization will receive a portion of our sales on your event day.  All that is asked of you is that you aggressively promote the event to your group members, friends and families!</p>
+      <div class="rounded-3xl bg-pa-ink p-8 text-white">
+        <h2 class="text-2xl font-black">Let’s talk about your organization!</h2>
+        <p class="mt-4 text-white/80">For more information about participating in the Touchback Program, contact Sue DeGeorge.</p>
+        <a class="btn btn-primary mt-6" href={`tel:${site.phone}`}>Call {site.phone}</a>
+      </div>
+    </div>
+    <figure class="overflow-hidden rounded-[2rem]">
+      <img src="/images/_MG_0107.jpg" alt="Guests gathering at Point After" class="h-auto w-full" loading="lazy" />
+      <figcaption class="mt-4 text-sm text-pa-ink/70">Good company. A stronger community.</figcaption>
+    </figure>
+  </div>
+</ContentLayout>

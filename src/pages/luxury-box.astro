@@ -1,0 +1,19 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import { site } from '../data/site';
+const occasions = ['Birthday and surprise parties', 'Business and staff meetings', 'Product presentations', 'Wine tastings', 'Anniversary celebrations', 'Family gatherings', 'Sports get-togethers', 'Fantasy drafts', 'Baby showers', 'Bridal showers', 'Viewing parties'];
+---
+<ContentLayout title="Luxury Box" description="Host up to 50 guests in Point After’s Luxury Box, with flexible dining options and seven big-screen TVs." eyebrow="Your next event" heading="Welcome to the Luxury Box.">
+  <div class="mt-12 grid gap-12 lg:grid-cols-2">
+    <div>
+      <p class="text-xl leading-9">Get the VIP treatment in Point After's Luxury Box!  The Luxury Box is available for full dinner service, buffets, appetizers/small plates or customize the menu to meet the needs of your event.  Perfect for parties for as many as 50 people!</p>
+      <h2 class="mt-10 text-3xl font-black text-pa-primary">The PA Luxury Box is ideal for every occasion:</h2>
+      <ul class="mt-6 grid list-inside list-disc gap-3 leading-7 sm:grid-cols-2">{occasions.map((occasion) => <li>{occasion}</li>)}</ul>
+    </div>
+    <img src="/images/IMG_8820.jpg" alt="Dining tables and seating at Point After" class="h-full max-h-[600px] w-full rounded-[2rem] object-cover" loading="lazy" />
+  </div>
+  <div class="mt-14 grid gap-8 rounded-[2rem] bg-pa-ink p-8 text-white sm:p-12 lg:grid-cols-2">
+    <div><h2 class="text-3xl font-black">Need a place to catch the big game?</h2><p class="mt-5 leading-8 text-white/80">The Luxury Box is the place to watch sporting events. Take advantage of our 7 big screen TV's, including our 75" flat screen!  This bad boy includes wireless and Internet access and is ideal for presentations, video programs and more.</p></div>
+    <div><h2 class="text-3xl font-black">Plan your event.</h2><p class="mt-5 leading-8 text-white/80">Contact Sue DeGeorge, General Manager, for more information about hosting your event in the Luxury Box.</p><a class="btn btn-primary mt-6" href={`tel:${site.phone}`}>Call {site.phone}</a></div>
+  </div>
+</ContentLayout>

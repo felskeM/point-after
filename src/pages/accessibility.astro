@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout title="Accessibility | Point After Pub & Grille" description="Contact Point After for help accessing restaurant information or menus.">
+  <main id="main-content" tabindex="-1" class="section-shell legal-copy max-w-3xl py-16">
+    <a href="/">← Back to Point After</a>
+    <h1 class="mt-10 text-4xl font-black text-pa-primary">Accessibility assistance</h1>
+    <p>We want everyone to be able to find restaurant information and plan a visit. This website includes keyboard navigation, visible focus indicators, a skip link, descriptive image text, and support for reduced motion.</p>
+    <h2>Need help with a menu or this website?</h2>
+    <p>Some menus are PDF documents and may not work equally well with every assistive technology. Call <a href={`tel:${site.phone}`}>{site.phone}</a> for menu information, prices, hours, or help planning your visit.</p>
+    <p>If you encounter a barrier, tell us which page or document you were using and what help you need. You can also contact us at {site.address}.</p>
+    <p><a href="/privacy/">Website privacy</a> · <a href="/#contact-new">Hours and contact</a></p>
+  </main>
+</BaseLayout>

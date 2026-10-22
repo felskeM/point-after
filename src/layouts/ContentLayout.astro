@@ -1,0 +1,27 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import { site } from '../data/site';
+const { title, description, eyebrow, heading } = Astro.props;
+---
+<BaseLayout title={`${title} | ${site.name}`} description={description}>
+  <Header />
+  <main id="main-content" tabindex="-1" class="pb-20 pt-12 xl:pt-40">
+    <div class="section-shell">
+      <a href="/" class="card-link">← Back to The Point</a>
+      <p class="mt-10 text-xs font-black uppercase tracking-[.25em] text-pa-primary">{eyebrow}</p>
+      <h1 class="display-title mt-4 max-w-4xl">{heading}</h1>
+      <slot />
+    </div>
+  </main>
+  <footer class="bg-pa-ink py-10 text-white/80">
+    <div class="section-shell flex flex-wrap items-center justify-between gap-6 text-sm">
+      <p>© {new Date().getFullYear()} {site.name}</p>
+      <nav class="flex flex-wrap gap-5" aria-label="Footer">
+        <a href="/privacy/" class="underline">Privacy</a>
+        <a href="/accessibility/" class="underline">Accessibility</a>
+        <a href="/#contact-new" class="underline">Hours &amp; contact</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>

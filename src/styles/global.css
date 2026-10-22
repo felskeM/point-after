@@ -6,16 +6,44 @@
   --font-display: "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
   --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
 }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+@media (min-width: 1280px) { html { scroll-padding-top: 110px; } }
+.nav-link[aria-current="page"] { color: #f5a91c; text-decoration: underline; text-underline-offset: 6px; }
+:focus-visible { outline: 3px solid #fff; outline-offset: 3px; box-shadow: 0 0 0 6px #211815; }
+body { overflow-wrap: anywhere; }
+img { max-width: 100%; }
+main:focus { outline: none; }
+.form-field { display: grid; gap: .5rem; min-width: 0; }
+.form-field label, legend { font-weight: 700; }
+.form-field input, .form-field select, .form-field textarea { width: 100%; min-height: 48px; border: 2px solid #65594e; border-radius: .5rem; background: white; color: #211815; padding: .75rem; font: inherit; }
+.form-field textarea { min-height: 160px; }
+input[type="checkbox"] { width: 24px; height: 24px; flex-shrink: 0; accent-color: #791715; }
+.check-label { display: flex; align-items: center; gap: .75rem; min-height: 44px; }
+[aria-invalid="true"] { border-color: #791715; }
+.field-error { color: #791715; font-weight: 700; }
+.form-status { border: 2px solid #791715; border-radius: .75rem; padding: 1rem; }
+button:disabled { cursor: not-allowed; opacity: .7; }
+@media (forced-colors: active) { :focus-visible { outline: 3px solid Highlight; } .btn, input, textarea, select { border: 2px solid ButtonText; } }
+@media print { .site-header, footer, .skip-link { display: none; } main { padding-top: 0 !important; } }
+.skip-link { position: fixed; top: -100px; left: 16px; z-index: 100; padding: 12px 20px; background: white; color: #211815; }
+.skip-link:focus { top: 12px; }
+.legal-copy p { margin-top: 1rem; line-height: 1.8; }
+.legal-copy h2 { margin-top: 2rem; font-size: 1.5rem; font-weight: 800; }
+.legal-copy a { text-decoration: underline; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
 body { @apply m-0 bg-pa-cream font-sans text-pa-ink antialiased; }
 ::selection { @apply bg-pa-secondary text-pa-ink; }
 .section-shell { @apply mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12; }
 .eyebrow { @apply text-xs font-black uppercase tracking-[0.3em] text-pa-secondary; }
+.eyebrow.text-pa-primary { color: #791715; }
 .btn { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-xs font-black uppercase tracking-[0.16em] transition duration-300; }
 .btn-primary { @apply bg-pa-secondary text-pa-ink hover:-translate-y-0.5 hover:bg-white; }
 .btn-outline { @apply border border-white/50 text-white hover:-translate-y-0.5 hover:border-pa-secondary hover:bg-pa-secondary hover:text-pa-ink; }
-.site-header { @apply fixed inset-x-0 top-0 z-50 border-b border-white/15 bg-pa-ink/80 backdrop-blur-xl; }
-.nav-link { @apply text-xs font-extrabold uppercase tracking-[0.16em] text-white/75 transition hover:text-pa-secondary; }
+.site-header { @apply relative xl:fixed inset-x-0 top-0 z-50 border-b border-white/15 bg-pa-ink; }
+.nav-link { @apply inline-flex min-h-11 items-center text-xs font-extrabold uppercase tracking-[0.16em] text-white transition hover:text-pa-secondary; }
 .icon-link { @apply grid h-12 w-12 place-items-center rounded-full border border-white/30 text-[10px] font-black uppercase text-white transition hover:border-pa-secondary hover:text-pa-secondary; }
 .hero { @apply relative isolate overflow-hidden bg-pa-ink text-white; }
 .hero-image { @apply absolute inset-0 -z-20 h-full w-full object-cover; object-position: 58% center; }
@@ -30,5 +58,4 @@ body { @apply m-0 bg-pa-cream font-sans text-pa-ink antialiased; }
 .photo-card { @apply overflow-hidden rounded-[2rem]; }
 .photo-card img { @apply h-full w-full object-cover transition duration-700 hover:scale-105; }
 .marquee { @apply overflow-hidden whitespace-nowrap border-y border-pa-primary/15 bg-pa-secondary py-4 font-display text-3xl font-black uppercase tracking-tight text-pa-primary; }
-.marquee span { @apply inline-block pr-8; animation: drift 25s linear infinite; }
-@keyframes drift { to { transform: translateX(-50%); } }
+.marquee span { @apply inline-block pr-8; }

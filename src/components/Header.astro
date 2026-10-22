@@ -3,15 +3,18 @@ import { nav, site } from '../data/site';
 ---
 <header class="site-header">
   <div class="section-shell flex h-[86px] items-center justify-between gap-6">
-    <a href="#home" class="shrink-0" aria-label="Point After home">
+    <a href="/" class="shrink-0" aria-label="Point After home">
       <img src="/brand/tag-logo.png" alt="Point After Pub & Grille" class="h-14 w-auto" />
     </a>
-    <nav class="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
-      {nav.map((item) => <a class="nav-link" href={item.href}>{item.label}</a>)}
+    <nav class="hidden items-center gap-5 xl:flex" aria-label="Primary navigation">
+      {nav.map((item) => <a class="nav-link" href={item.href} aria-current={Astro.url.pathname === item.href ? 'page' : undefined}>{item.label}</a>)}
     </nav>
     <div class="flex items-center gap-3">
-      <a href="#menu-new" class="btn btn-primary hidden sm:inline-flex">View Menu</a>
+      <a href="/#menu-new" class="btn btn-primary hidden sm:inline-flex xl:hidden 2xl:inline-flex">View Menu</a>
       <a href={`tel:${site.phone}`} class="icon-link" aria-label={`Call ${site.phone}`}>Call</a>
     </div>
   </div>
+  <nav class="flex flex-wrap justify-center gap-x-5 gap-y-2 bg-pa-ink px-4 py-3 xl:hidden" aria-label="Mobile navigation">
+    {nav.map((item) => <a class="nav-link" href={item.href} aria-current={Astro.url.pathname === item.href ? 'page' : undefined}>{item.label}</a>)}
+  </nav>
 </header>

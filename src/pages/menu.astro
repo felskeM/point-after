@@ -1,0 +1,15 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import { menuSections } from '../data/menus';
+const sectionId = (index: number) => `menu-section-${index + 1}`;
+---
+<ContentLayout title="Food & Drink Menu" description="Read the complete Point After menu in an accessible text format, including prices, choices, Taco Tuesday and wine features." eyebrow="Food & drink" heading="The menu, your way.">
+  <p class="mt-7 max-w-3xl leading-8">This text menu includes the food, Taco Tuesday, and wine menus supplied for this site. Prices and seasonal availability may change. Tell the restaurant about allergies or dietary needs before ordering.</p>
+  <nav aria-label="Menu categories" class="my-10 flex flex-wrap gap-3">{menuSections.map((section, index) => <a class="btn border border-pa-primary text-pa-primary" href={`#${sectionId(index)}`}>{section.title}</a>)}</nav>
+  {menuSections.map((section, index) => <section id={sectionId(index)} class="mb-12" aria-labelledby={`${sectionId(index)}-heading`}>
+    <h2 id={`${sectionId(index)}-heading`} class="text-3xl font-black text-pa-primary">{section.title}</h2>
+    {section.note && <p class="mt-4 max-w-3xl leading-7">{section.note}</p>}
+    <dl class="mt-6 grid gap-x-10 gap-y-6 md:grid-cols-2">{section.items.map(([name, price, description]) => <div class="border-t border-pa-taupe pt-4"><dt class="text-xl font-bold">{name}</dt><dd class="mt-2 font-bold text-pa-primary">{price}</dd>{description && <dd class="mt-2 leading-7">{description}</dd>}</div>)}</dl>
+  </section>)}
+  <aside class="rounded-2xl border border-pa-primary p-6 leading-7" aria-label="Menu notices"><p>Consuming raw or undercooked meats, poultry, seafood, shellfish or eggs may increase your risk of foodborne illness.</p><p class="mt-3">The main menu lists Visa, Mastercard, American Express and Discover as accepted cards; personal or business checks are not accepted.</p></aside>
+</ContentLayout>

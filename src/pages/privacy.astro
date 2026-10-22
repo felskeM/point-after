@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout title="Website Privacy | Point After Pub & Grille" description="How this website handles information and how to contact Point After about privacy.">
+  <main id="main-content" tabindex="-1" class="section-shell legal-copy max-w-3xl py-16">
+    <a href="/">← Back to Point After</a>
+    <h1 class="mt-10 text-4xl font-black text-pa-primary">Website privacy notice</h1>
+    <p>Updated September 28, 2026. This notice describes the Point After Pub &amp; Grille informational website.</p>
+    <h2>Information when you browse</h2>
+    <p>This website does not include accounts, submission forms, online checkout, advertising pixels, or analytics scripts. Its code does not set cookies or use browser storage. Images, fonts, styles, and menu files are served without embedded third-party maps, videos, or social feeds.</p>
+    <p>Our hosting and network providers may process technical information such as your IP address, requested pages, browser information, timestamps, and security events to deliver and protect the website. Hosting security features may use necessary cookies. Technical information is handled under the provider’s service settings and policies; this website does not specify a fixed retention period for those provider records.</p>
+    <h2>When you contact us</h2>
+    <p>If you telephone or write to the restaurant, you choose what information to share. Contact information and details about your inquiry may be used to respond and arrange restaurant services. Please do not send payment card details or other sensitive information in an ordinary message.</p>
+    <h2>Cookies, advertising, and privacy signals</h2>
+    <p>This website does not sell personal information, share it for cross-context behavioral advertising, or run targeted advertising. There is no optional tracking to enable or disable. Global Privacy Control and Do Not Track signals do not change this site’s behavior because those activities are absent for every visitor.</p>
+    <h2>Links to other services</h2>
+    <p>Choosing a directions link opens Google Maps. External services receive information when you visit them and have their own privacy policies. Your phone service handles calls initiated using a telephone link.</p>
+    <h2>Questions and requests</h2>
+    <p>To ask about information you have provided, request access, correction, or deletion, or raise a privacy concern, call <a href={`tel:${site.phone}`}>{site.phone}</a> or write to {site.name}, {site.address}. Available rights and exceptions depend on applicable law. We may need to verify your identity before acting on a request.</p>
+    <h2>Children</h2>
+    <p>This informational site is intended for a general audience and does not solicit personal information from children under 13 through online forms or accounts. Contact us if you believe a child has provided personal information to the restaurant.</p>
+    <h2>Changes</h2>
+    <p>Changes to this website’s practices will be reflected here with an updated date. This notice covers this website; separate ordering, employment, or other services may have additional notices.</p>
+    <p><a href="/accessibility/">Accessibility assistance</a> · <a href="/#contact-new">Hours and contact</a></p>
+  </main>
+</BaseLayout>

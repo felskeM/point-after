@@ -1,0 +1,17 @@
+---
+import { readdirSync } from 'node:fs';
+import { resolve } from 'node:path';
+import ContentLayout from '../layouts/ContentLayout.astro';
+import { galleryDescriptions } from '../data/gallery-descriptions';
+const images = readdirSync(resolve('public/images')).filter((name) => /\.(jpe?g|png|webp|avif)$/i.test(name)).sort();
+---
+<ContentLayout title="Gallery" description="Explore photos of food, drinks, gatherings, and good times at Point After Pub & Grille." eyebrow="Life at The Point" heading="Good food. Good company.">
+  <p class="mt-7 max-w-2xl text-lg leading-8 text-pa-ink/75">A look around Point After, from the table to the big game. Explore all {images.length} photos, and select any photo for a larger view.</p>
+  <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    {images.map((name, index) => (
+      <a href={`/gallery-images/full/${name}.webp`} class="group block overflow-hidden rounded-2xl bg-pa-ink" aria-label={`Enlarge photo ${index + 1}: ${galleryDescriptions[name.replace(/\.[^.]+$/, '')] || 'Point After gathering'}`}>
+        <img src={`/gallery-images/thumb/${name}.webp`} alt={galleryDescriptions[name.replace(/\.[^.]+$/, '')] || 'Point After gathering'} width="720" height="540" class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" decoding="async" />
+      </a>
+    ))}
+  </div>
+</ContentLayout>

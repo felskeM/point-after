@@ -23,3 +23,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Generated gallery derivatives; originals remain in public/images
+/public/gallery-images/
