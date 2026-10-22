@@ -26,3 +26,6 @@ pnpm-debug.log*
 
 # Generated gallery derivatives; originals remain in public/images
 /public/gallery-images/
+
+# Local Vercel project link
+.vercel/

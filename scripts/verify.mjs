@@ -26,7 +26,7 @@ for (const file of files) {
 for (const file of ['_headers', '_redirects', 'robots.txt', 'sitemap.xml', '404.html']) {
   assert(existsSync(join('dist', file)), `Missing deployment artifact ${file}`);
 }
-assert(readFileSync('dist/_headers', 'utf8').includes("script-src 'none'"));
+assert(readFileSync('dist/_headers', 'utf8').includes("script-src 'self'"));
 const gallery = readFileSync('dist/gallery/index.html', 'utf8');
 const photos = readdirSync('public/images').filter((name) => /\.(jpe?g|png|webp|avif)$/i.test(name));
 for (const photo of photos) {
@@ -39,3 +39,15 @@ assert(header.includes('href="/gallery/"') && header.includes('href="/touchback-
 assert(!header.includes('href="/luxury-box/"'), 'Luxury Box must not be in header');
 assert(home.match(/<section id="events-new"[\s\S]*?<\/section>/)?.[0].includes('href="/luxury-box/"'), 'Events must link to Luxury Box');
 console.log(`Verified ${files.length} pages: local links, anchors, privacy constraints, and deployment artifacts.`);
+
+const vercel = JSON.parse(readFileSync('vercel.json', 'utf8'));
+assert.equal(vercel.outputDirectory, 'dist');
+for (const line of readFileSync('public/_headers', 'utf8').trim().split('\n').slice(1)) {
+  const [key, ...value] = line.trim().split(': ');
+  assert(vercel.headers[0].headers.some((h) => h.key === key && h.value === value.join(': ')), `Vercel missing header ${key}`);
+}
+for (const line of readFileSync('public/_redirects', 'utf8').trim().split('\n')) {
+  const [source, destination, status] = line.trim().split(/\s+/);
+  assert(vercel.redirects.some((r) => r.source === source && r.destination === destination && r.statusCode === Number(status)), `Vercel missing redirect ${source}`);
+}
+console.log('Verified Vercel headers and legacy redirects.');

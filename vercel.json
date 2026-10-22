@@ -1,0 +1,76 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "astro",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build && npm run verify",
+  "outputDirectory": "dist",
+  "trailingSlash": true,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), browsing-topics=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/food.html",
+      "destination": "/#menu-new",
+      "statusCode": 301
+    },
+    {
+      "source": "/luxury-box.html",
+      "destination": "/luxury-box/",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/#contact-new",
+      "statusCode": 301
+    },
+    {
+      "source": "/gallery.html",
+      "destination": "/gallery/",
+      "statusCode": 301
+    },
+    {
+      "source": "/jobs.html",
+      "destination": "/jobs/",
+      "statusCode": 301
+    },
+    {
+      "source": "/touchback-program.html",
+      "destination": "/touchback-program/",
+      "statusCode": 301
+    }
+  ]
+}

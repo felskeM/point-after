@@ -1,6 +1,6 @@
 # Point After Pub & Grille
 
-Static Astro website with Tailwind CSS, prepared for Cloudflare Pages Git deployments.
+Static Astro website with Tailwind CSS, prepared for Vercel and Cloudflare Pages Git deployments.
 
 ## Development
 
@@ -17,6 +17,8 @@ npm run preview
 `verify` checks built links, privacy constraints, and deployment artifacts. GitHub Actions builds and verifies pull requests and pushes to `master`.
 
 ## Publish
+
+For a public `vercel.app` address, follow [the Vercel deployment guide](docs/vercel-deployment.md). Import this GitHub repository into Vercel; the committed configuration builds and verifies the site and preserves security headers and redirects. Production updates deploy automatically from `master` once connected. No domain purchase or API keys are required.
 
 Follow [the Cloudflare migration guide](docs/cloudflare-migration.md). Connect `felskeM/point-after` to a Cloudflare Pages Git-integrated project with production branch `master`, build command `npm run build && npm run verify`, output `dist`, and Node 24.15.0. Once connected, pushing to `master` triggers production deployment; other branches get previews. Native Git integration needs no Cloudflare API token committed to this repository.
 
