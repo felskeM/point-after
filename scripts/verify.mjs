@@ -6,7 +6,9 @@ const files = readdirSync('dist', { recursive: true }).filter((file) => file.end
 assert(files.length >= 7, 'Build all pages before verification');
 for (const file of files) {
   const html = readFileSync(join('dist', file), 'utf8');
-  assert(!/<(?:script|iframe|form|style)\b/i.test(html), `${file}: unexpected script, embed, form or inline style`);
+  // Remove Vercel Analytics script before checking for unexpected scripts
+  const htmlWithoutAnalytics = html.replace(/<script>window\.va = window\.va \|\|[\s\S]*?<\/script>/i, '');
+  assert(!/<(?:script|iframe|form|style)\b/i.test(htmlWithoutAnalytics), `${file}: unexpected script, embed, form or inline style`);
   assert(!/\sstyle=/i.test(html), `${file}: inline styles violate CSP`);
   assert.equal((html.match(/<main\b/g) || []).length, 1, `${file}: expected one main landmark`);
   assert(html.includes('id="main-content"'), `${file}: missing skip target`);
@@ -26,7 +28,9 @@ for (const file of files) {
 for (const file of ['_headers', '_redirects', 'robots.txt', 'sitemap.xml', '404.html']) {
   assert(existsSync(join('dist', file)), `Missing deployment artifact ${file}`);
 }
-assert(readFileSync('dist/_headers', 'utf8').includes("script-src 'self'"));
+const headersContent = readFileSync('dist/_headers', 'utf8');
+assert(headersContent.includes("script-src 'self'"), '_headers must include script-src self');
+assert(headersContent.includes("va.vercel-scripts.com"), '_headers must include Vercel Analytics script domain');
 const gallery = readFileSync('dist/gallery/index.html', 'utf8');
 const photos = readdirSync('public/images').filter((name) => /\.(jpe?g|png|webp|avif)$/i.test(name));
 for (const photo of photos) {

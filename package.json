@@ -15,7 +15,9 @@
     "predev": "node scripts/gallery-images.mjs"
   },
   "dependencies": {
+    "@astrojs/vercel": "^11.0.16",
     "@tailwindcss/vite": "^4.3.3",
+    "@vercel/analytics": "^2.0.1",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
